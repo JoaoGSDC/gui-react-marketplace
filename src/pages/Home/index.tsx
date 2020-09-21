@@ -39,7 +39,7 @@ const Home = () => {
 
   function handleInputChange(event: ChangeEvent<HTMLInputElement>): void {
     const searchUrl: string =
-      isNaN(Number(event.target.value)) || event.target.value === ""
+      isNaN(Number(event.target.value)) || event.target.value === ''
         ? `${url}?q=${event.target.value}`
         : `${url}?id=${event.target.value}`;
 
