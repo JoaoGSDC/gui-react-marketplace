@@ -17,7 +17,7 @@ const cart = (state: any = INITIAL_STATE, action: any) => {
       };
     case "UPDATE_AMOUNT_PRODUCT":
       console.log(action);
-      const data = state.data.forEach((item: any, index: number) => {
+      const data = state.data.map((item: any, index: number) => {
         if (index === action.productAmountChange.index) {
           item.amount = action.productAmountChange.amount;
         }
@@ -27,8 +27,6 @@ const cart = (state: any = INITIAL_STATE, action: any) => {
       return state;
   }
 };
-
-console.log(cart);
 
 const store = createStore(cart);
 

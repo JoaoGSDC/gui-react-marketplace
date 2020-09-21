@@ -55,6 +55,9 @@ const Details = () => {
     <div className="details">
       {product.map((product: IProduct) => (
         <>
+          <div className="name-product-mobile">
+            <label>{product.name}</label>
+          </div>
           <div className="container-details">
             <div className="container-img-details">
               <img className="img-height" src={product.image} alt="produto" />

@@ -1,6 +1,7 @@
 import React, { useState, ChangeEvent } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
+import InputNumber from "react-input-number";
 import { FaShoppingCart, FaTrash } from "react-icons/fa";
 import "./styles.css";
 
@@ -20,6 +21,31 @@ const Cart = () => {
   const [amountProduct, setAmountProduct] = useState<number>(0);
 
   let productAmount: number = 0;
+
+  function teste(t: number) {
+    console.log(t);
+  }
+
+  function deleteProductFromCart(product: IProduct): void {
+    let i = products.indexOf(product);
+
+    products.splice(i, 1);
+    dispatch({ type: "DELETE_PRODUCT", i });
+  }
+
+  function handleInputChange(event: ChangeEvent<HTMLInputElement>): void {
+    console.log(event);
+    setAmountProduct(Number(event));
+    console.log(amountProduct);
+    /* const productAmountChange: Object = {
+      amount: Number(event.target.value),
+      // index: products.findIndex((p: IProduct) => p.id === product.id),
+      index: 0,
+    };
+
+    console.log(productAmountChange);
+    dispatch({ type: "UPDATE_AMOUNT_PRODUCT", productAmountChange }); */
+  }
 
   function getProductsList(): any {
     if (products.length === 0) {
@@ -41,14 +67,24 @@ const Cart = () => {
                   <FaTrash size="16" />
                 </label>
               </label>
-              <input
+              {/* <input
                 className="amount-input"
-                type="number"
+                type="text"
+                min="1"
+                step="1"
+                value={1}
+                onChange={handleInputChange}
+              /> */}
+              <InputNumber
+                min={1}
+                max={100}
+                step={1}
+                value={product.amount}
                 onChange={handleInputChange}
               />
             </div>
           </label>
-          <label>
+          <label className="text-price">
             R$ {product.price.toFixed(2).toString().replace(".", ",")}
           </label>
         </div>
@@ -56,23 +92,7 @@ const Cart = () => {
     }
   }
 
-  function deleteProductFromCart(product: IProduct): void {
-    let i = products.indexOf(product);
-
-    products.splice(i, 1);
-    dispatch({ type: "DELETE_PRODUCT", i });
-  }
-
-  function handleInputChange(event: ChangeEvent<HTMLInputElement>): void {
-    const productAmountChange: Object = {
-      amount: Number(event.target.value),
-      // index: products.findIndex((p: IProduct) => p.id === product.id),
-      index: 0,
-    };
-
-    console.log(productAmountChange);
-    dispatch({ type: "UPDATE_AMOUNT_PRODUCT", productAmountChange });
-  }
+  
 
   return (
     <>

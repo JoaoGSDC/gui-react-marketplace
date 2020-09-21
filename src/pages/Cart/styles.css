@@ -66,3 +66,28 @@ label svg:hover {
     align-items: center;
     justify-content: space-between;
 }
+
+@media (max-width: 600px) {
+    .card-cart {
+        width: calc(100% - 90px);
+    }
+
+    .container-img {
+        flex-direction: column;
+    }
+
+    .product-img {
+        width: auto;
+        height: 110px;
+        margin-right: 0px;
+    }
+
+    .product-item {
+        flex-direction: column;
+    }
+
+    .text-price {
+        font-size: 24px;
+        margin-top: 15px;
+    }
+}
