@@ -36,7 +36,7 @@ const Details = () => {
     );
     const searchUrl: string = `${url}?id=${idProduct}`;
 
-    axios.get<IProduct>(searchUrl).then((res) => {
+    axios.get<IProduct[]>(searchUrl).then((res) => {
       setProduct(res.data);
     });
   }
