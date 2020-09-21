@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 import axios from "axios";
 
@@ -48,7 +48,7 @@ const Details = () => {
 
     dispatch({ type: "ADD_PRODUCT", product });
 
-    history.push('/cart');
+    history.push("/cart");
   }
 
   return (
@@ -67,7 +67,9 @@ const Details = () => {
                 <label className="price">
                   R$ {product.price.toFixed(2).toString().replace(".", ",")}
                 </label>
-                <button type="button" onClick={() => addProductToCart(product)}>Comprar</button>
+                <button type="button" onClick={() => addProductToCart(product)}>
+                  Comprar
+                </button>
               </div>
               <label>{product.description}</label>
             </div>
