@@ -1,0 +1,40 @@
+nav {
+    display: flex;
+    align-items: center;
+    padding: 5px 50px 5px 15px;
+    background-color: #ff8000;
+    justify-content: space-between;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    height: 75px;
+}
+
+.cart {
+    display: flex;
+    font-size: 20px;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.6);
+    text-decoration: none;
+}
+
+.cart:hover {
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 600px) {
+    .home {
+        width: 100%;
+    }
+    nav {
+        width: 100%;
+    }
+    .cart-text {
+        display: none;
+    }
+    svg {
+        margin-right: 30px;
+    }
+}

@@ -1,0 +1,53 @@
+.img-size {
+    height: 150px;
+}
+
+.card {
+    margin: 15px;
+    width: 300px;
+    padding: 10px;
+    height: 300px;
+    display: flex;
+    text-align: center;
+    border-radius: 3px;
+    align-items: center;
+    flex-direction: column;
+    background-color: #dadada;
+    transition: transform 0.2s;
+    background-image: linear-gradient(#f3f3f3, #e0e0e0);
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+.product {
+    display: flex;
+    flex: 1 0 21%;
+    justify-content: center;
+}
+
+.product-text {
+    margin: 15px;
+}
+
+.text-link {
+    display: flex;
+    font-size: 20px;
+    align-items: center;
+    text-decoration: none;
+    justify-content: center;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.text-link:hover {
+    cursor: pointer;
+    color: #ff8000;
+}
+
+@media (max-width: 600px) {
+    .card {
+        width: calc(100% - 50px);
+        margin: 15px 10px 15px 7px;
+    }
+}
