@@ -18,14 +18,12 @@ const cart = (state: any = INITIAL_STATE, action: any) => {
       };
 
     case "UPDATE_AMOUNT_PRODUCT":
-      console.log(action);
-      console.log(state.data);
       state.data.map((item: any, index: number) => {
         if (item.id === action.product.id) {
           item = action.product;
         }
       });
-      console.log(state.data);
+
       return { ...state, data: state.data };
 
     default:
