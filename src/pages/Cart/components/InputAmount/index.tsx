@@ -17,8 +17,7 @@ interface INumber {
   onClickAdd: any;
   onClickReduce: any;
 }
-/* onClick={() => countAmountProduct("Reduce", product)}
-        onClick={() => countAmountProduct("Add", product)} */
+
 const InputAmount = (props: INumber) => {
   const classes = Styles();
   return (
@@ -30,6 +29,7 @@ const InputAmount = (props: INumber) => {
       >
         -
       </button>
+
       <InputNumber
         className={classes.inputNumber}
         min={1}
@@ -38,6 +38,7 @@ const InputAmount = (props: INumber) => {
         value={props.product.amount}
         readOnly
       />
+
       <button
         type="button"
         className={classes.inputNumberButtons}

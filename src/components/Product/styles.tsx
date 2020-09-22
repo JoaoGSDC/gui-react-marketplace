@@ -2,7 +2,8 @@ import { createUseStyles } from "react-jss";
 
 const Styles = createUseStyles({
     imgSize: {
-        height: '150px',
+        width: '100%',
+        height: '160px',
     },
     
     card: {

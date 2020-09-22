@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import { FaShoppingCart } from "react-icons/fa";
 
@@ -19,6 +19,12 @@ const Cart = () => {
   const classes = Styles();
 
   const products = useSelector((state: any) => state.data);
+  const dispatch: any = useDispatch();
+
+  function checkOut(): void {
+    alert("Compra finalizada com sucesso!");
+    dispatch({ type: "CLEAR_CART" });
+  }
 
   function getProductsList(): any {
     if (products.length === 0) {
@@ -29,9 +35,19 @@ const Cart = () => {
         </label>
       );
     } else {
-      return products.map((product: IProduct) => (
-        <ListCart product={product} products={products} />
-      ));
+      return (
+        <>
+          {products.map((product: IProduct) => (
+            <ListCart product={product} products={products} />
+          ))}
+
+          <div>
+            <button type="button" onClick={() => checkOut()}>
+              Finalizar Compra
+            </button>
+          </div>
+        </>
+      );
     }
   }
 

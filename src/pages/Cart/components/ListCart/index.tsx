@@ -60,13 +60,16 @@ const ListCart = (props: IListCart) => {
           src={props.product.image}
           alt="product"
         />
+
         <div className={classes.containerFields}>
           <label className={classes.productName}>
             {props.product.name}
+
             <label onClick={() => deleteProductFromCart(props.product)}>
               <FaTrash className={classes.svg} size="16" />
             </label>
           </label>
+
           <div>
             <InputAmount
               product={props.product}
@@ -76,6 +79,7 @@ const ListCart = (props: IListCart) => {
           </div>
         </div>
       </label>
+
       <label className={classes.textPrice}>
         R$ {props.product.price.toFixed(2).toString().replace(".", ",")}
       </label>

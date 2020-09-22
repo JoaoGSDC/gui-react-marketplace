@@ -13,6 +13,7 @@ const Header = () => {
       <Link to="/">
         <img src={logo} alt="logo" className={classes.logo} />
       </Link>
+
       <Link className={classes.cart} to="/cart">
         <FaShoppingCart className={classes.svg} size="40" />
         <label className={classes.cartText}>Carrinho</label>

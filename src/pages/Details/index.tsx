@@ -25,8 +25,7 @@ const Details = () => {
 
   const [product, setProduct] = useState<IProduct[]>([]);
 
-  // const url: string = "http://localhost:3001/products";
-  const url: string = "http://192.168.15.31:3001/products";
+  const url: string = "http://localhost:3001/products";
 
   useEffect(() => {
     getProduct();
@@ -64,6 +63,7 @@ const Details = () => {
           <div className={classes.nameProductMobile}>
             <label>{product.name}</label>
           </div>
+
           <div className={classes.containerDetails}>
             <div className={classes.containerImgDetails}>
               <img
@@ -72,18 +72,22 @@ const Details = () => {
                 alt="produto"
               />
             </div>
+
             <div className={classes.containerDescription}>
               <div className={classes.nameProduct}>
                 <label>{product.name}</label>
               </div>
+
               <div className={classes.containerPrice}>
                 <label className={classes.price}>
                   R$ {product.price.toFixed(2).toString().replace(".", ",")}
                 </label>
+
                 <button type="button" onClick={() => addProductToCart(product)}>
                   Comprar
                 </button>
               </div>
+
               <label>{product.description}</label>
             </div>
           </div>

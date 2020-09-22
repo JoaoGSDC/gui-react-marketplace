@@ -26,6 +26,10 @@ const cart = (state: any = INITIAL_STATE, action: any) => {
 
       return { ...state, data: state.data };
 
+    case "CLEAR_CART":
+      state.data = [];
+      return { ...state, data: state.data };
+
     default:
       return state;
   }
