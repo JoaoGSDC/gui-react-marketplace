@@ -52,11 +52,11 @@
     flex-direction: column;
 }
 
-@media (max-width: 600px) {
-    .details {
-        width: calc(100% - 60px);
-    }
+.name-product-mobile {
+    display: none;
+}
 
+@media (max-width: 600px) {
     .container-details {
         flex-direction: column;
     }
@@ -67,7 +67,7 @@
     }
 
     .img-height {
-        height: 165px;
+        height: 145px;
         width: 100%;
     }
 

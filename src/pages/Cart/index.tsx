@@ -76,6 +76,7 @@ const Cart = () => {
                 onChange={handleInputChange}
               /> */}
               <InputNumber
+                className="input-number"
                 min={1}
                 max={100}
                 step={1}

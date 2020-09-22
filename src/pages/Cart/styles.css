@@ -68,10 +68,6 @@ label svg:hover {
 }
 
 @media (max-width: 600px) {
-    .card-cart {
-        width: calc(100% - 90px);
-    }
-
     .container-img {
         flex-direction: column;
     }
