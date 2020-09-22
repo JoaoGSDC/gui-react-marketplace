@@ -102,6 +102,14 @@ const Styles = createUseStyles({
       fontSize: "24px",
       marginTop: "15px",
     },
+
+    inputNumber: {
+      width: "100px",
+    },
+
+    inputNumberButtons: {
+      height: "45px",
+    },
   },
 });
 

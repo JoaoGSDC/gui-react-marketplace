@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import InputNumber from "react-input-number";
@@ -20,6 +20,8 @@ const Cart = () => {
 
   const products = useSelector((state: any) => state.data);
   const dispatch: any = useDispatch();
+
+  const [amountProduct, setAmountProduct] = useState<number>(1);
 
   function deleteProductFromCart(product: IProduct): void {
     let i = products.indexOf(product);
@@ -43,6 +45,8 @@ const Cart = () => {
 
     product.amount = amount[action]();
     dispatch({ type: "UPDATE_AMOUNT_PRODUCT", product });
+
+    setAmountProduct(product.amount);
   }
 
   function getProductsList(): any {
