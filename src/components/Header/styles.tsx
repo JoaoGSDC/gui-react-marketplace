@@ -35,7 +35,7 @@ const Styles = createUseStyles({
     marginRight: "15px",
   },
 
-  "@media (max-width: 600px)": {
+  "@media (max-width: 768px)": {
     cartText: {
       display: "none",
     },

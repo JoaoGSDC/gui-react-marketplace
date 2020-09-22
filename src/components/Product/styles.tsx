@@ -49,7 +49,7 @@ const Styles = createUseStyles({
         },
     },
     
-    '@media (max-width: 600px)': {
+    '@media (max-width: 768px)': {
         card: {
             width: 'calc(100% - 50px)',
             margin: '15px 10px 15px 7px',

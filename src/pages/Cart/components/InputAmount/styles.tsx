@@ -10,7 +10,7 @@ const Styles = createUseStyles({
     textAlign: "right",
   },
 
-  "@media (max-width: 600px)": {
+  "@media (max-width: 768px)": {
     inputNumber: {
       width: "100px",
     },

@@ -64,7 +64,7 @@ const Styles = createUseStyles({
     },
   },
 
-  "@media (max-width: 600px)": {
+  "@media (max-width: 768px)": {
     imgsNinja: {
       height: "200px",
     },

@@ -60,6 +60,13 @@ const Styles = createUseStyles({
   },
 
   "@media (max-width: 600px)": {
+    imgHeight: {
+      width: "100%",
+      height: "145px",
+    },
+  },
+
+  "@media (max-width: 768px)": {
     containerDetails: {
       flexDirection: "column",
     },
@@ -70,8 +77,8 @@ const Styles = createUseStyles({
     },
 
     imgHeight: {
-      height: "145px",
       width: "100%",
+      height: "100%",
     },
 
     nameProduct: {
