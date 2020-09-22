@@ -16,6 +16,7 @@ interface IProduct {
   name: string;
   price: number;
   image: string;
+  amount: number;
   description: string;
 }
 
@@ -53,6 +54,7 @@ const Home = () => {
       return;
     }
 
+    product.amount = 1;
     dispatch({ type: "ADD_PRODUCT", product });
   }
 

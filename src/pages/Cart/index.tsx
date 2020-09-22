@@ -15,16 +15,8 @@ interface IProduct {
 }
 
 const Cart = () => {
-  const products = useSelector((state) => state.data);
+  const products = useSelector((state: any) => state.data);
   const dispatch: any = useDispatch();
-
-  const [amountProduct, setAmountProduct] = useState<number>(0);
-
-  let productAmount: number = 0;
-
-  function teste(t: number) {
-    console.log(t);
-  }
 
   function deleteProductFromCart(product: IProduct): void {
     let i = products.indexOf(product);
@@ -33,18 +25,21 @@ const Cart = () => {
     dispatch({ type: "DELETE_PRODUCT", i });
   }
 
-  function handleInputChange(event: ChangeEvent<HTMLInputElement>): void {
-    console.log(event);
-    setAmountProduct(Number(event));
-    console.log(amountProduct);
-    /* const productAmountChange: Object = {
-      amount: Number(event.target.value),
-      // index: products.findIndex((p: IProduct) => p.id === product.id),
-      index: 0,
+  function countAmountProduct(action: string, product: IProduct): void {
+    let amountValue: number = product.amount;
+
+    const amount = {
+      Add() {
+        return amountValue >= 30 ? amountValue : amountValue + 1;
+      },
+
+      Reduce() {
+        return amountValue <= 1 ? amountValue : amountValue - 1;
+      },
     };
 
-    console.log(productAmountChange);
-    dispatch({ type: "UPDATE_AMOUNT_PRODUCT", productAmountChange }); */
+    product.amount = amount[action]();
+    dispatch({ type: "UPDATE_AMOUNT_PRODUCT", product });
   }
 
   function getProductsList(): any {
@@ -59,7 +54,7 @@ const Cart = () => {
       return products.map((product: IProduct) => (
         <div className="product-item" key={product.id}>
           <label className="container-img">
-            <img className="product-img" src={product.image} />
+            <img className="product-img" src={product.image} alt="product" />
             <div className="container-fields">
               <label className="product-name">
                 {product.name}
@@ -67,22 +62,30 @@ const Cart = () => {
                   <FaTrash size="16" />
                 </label>
               </label>
-              {/* <input
-                className="amount-input"
-                type="text"
-                min="1"
-                step="1"
-                value={1}
-                onChange={handleInputChange}
-              /> */}
-              <InputNumber
-                className="input-number"
-                min={1}
-                max={100}
-                step={1}
-                value={product.amount}
-                onChange={handleInputChange}
-              />
+              <div>
+                <button
+                  type="button"
+                  className="input-number-buttons"
+                  onClick={() => countAmountProduct("Reduce", product)}
+                >
+                  -
+                </button>
+                <InputNumber
+                  className="input-number"
+                  min={1}
+                  max={30}
+                  step={1}
+                  value={product.amount}
+                  readOnly
+                />
+                <button
+                  type="button"
+                  className="input-number-buttons"
+                  onClick={() => countAmountProduct("Add", product)}
+                >
+                  +
+                </button>
+              </div>
             </div>
           </label>
           <label className="text-price">
@@ -92,8 +95,6 @@ const Cart = () => {
       ));
     }
   }
-
-  
 
   return (
     <>

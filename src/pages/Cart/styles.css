@@ -67,6 +67,11 @@ label svg:hover {
     justify-content: space-between;
 }
 
+.input-number-buttons {
+    width: 40px;
+    height: 100%;
+}
+
 @media (max-width: 600px) {
     .container-img {
         flex-direction: column;

@@ -8,6 +8,7 @@ interface IProduct {
   name: string;
   price: number;
   image: string;
+  amount?: number;
   description?: string;
 
   onClick: any;

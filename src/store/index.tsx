@@ -8,6 +8,7 @@ const cart = (state: any = INITIAL_STATE, action: any) => {
   switch (action.type) {
     case "ADD_PRODUCT":
       return { ...state, data: [...state.data, action.product] };
+
     case "DELETE_PRODUCT":
       return {
         ...state,
@@ -15,14 +16,18 @@ const cart = (state: any = INITIAL_STATE, action: any) => {
           (item: any, index: number) => index !== action.product
         ),
       };
+
     case "UPDATE_AMOUNT_PRODUCT":
       console.log(action);
-      const data = state.data.map((item: any, index: number) => {
-        if (index === action.productAmountChange.index) {
-          item.amount = action.productAmountChange.amount;
+      console.log(state.data);
+      state.data.map((item: any, index: number) => {
+        if (item.id === action.product.id) {
+          item = action.product;
         }
       });
-      return { ...state, data };
+      console.log(state.data);
+      return { ...state, data: state.data };
+
     default:
       return state;
   }
