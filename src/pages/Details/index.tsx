@@ -25,7 +25,8 @@ const Details = () => {
 
   const [product, setProduct] = useState<IProduct[]>([]);
 
-  const url: string = "http://localhost:3001/products";
+  // const url: string = "http://localhost:3001/products";
+  const url: string = "http://192.168.15.31:3001/products";
 
   useEffect(() => {
     getProduct();
@@ -46,6 +47,7 @@ const Details = () => {
 
   function addProductToCart(product: IProduct): void {
     if (productsCart.find((p) => p.id === product.id)) {
+      history.push("/cart");
       return;
     }
 
