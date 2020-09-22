@@ -18,7 +18,7 @@ const cart = (state: any = INITIAL_STATE, action: any) => {
       };
 
     case "UPDATE_AMOUNT_PRODUCT":
-      state.data.map((item: any, index: number) => {
+      state.data.map((item: any) => {
         if (item.id === action.product.id) {
           item = action.product;
         }
