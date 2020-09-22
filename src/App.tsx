@@ -4,9 +4,11 @@ import { Provider } from 'react-redux';
 
 import store from './store';
 
-import './styles.css';
+import Styles from './styles';
+// import './styles.css';
 
 const App = () => {
+  Styles();
   return (
     <Provider store={store}>
       <div className="App">

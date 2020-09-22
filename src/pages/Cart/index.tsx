@@ -1,9 +1,10 @@
-import React, { useState, ChangeEvent } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import InputNumber from "react-input-number";
 import { FaShoppingCart, FaTrash } from "react-icons/fa";
-import "./styles.css";
+
+import Styles from "./styles";
 
 interface IProduct {
   id: number;
@@ -15,6 +16,8 @@ interface IProduct {
 }
 
 const Cart = () => {
+  const classes = Styles();
+
   const products = useSelector((state: any) => state.data);
   const dispatch: any = useDispatch();
 
@@ -45,33 +48,37 @@ const Cart = () => {
   function getProductsList(): any {
     if (products.length === 0) {
       return (
-        <label className="text-cart">
-          <FaShoppingCart size="40" />
+        <label className={classes.textCart}>
+          <FaShoppingCart className={classes.svg} size="40" />
           Nenhum produto adicionado ao carrinho.
         </label>
       );
     } else {
       return products.map((product: IProduct) => (
-        <div className="product-item" key={product.id}>
-          <label className="container-img">
-            <img className="product-img" src={product.image} alt="product" />
-            <div className="container-fields">
-              <label className="product-name">
+        <div className={classes.productItem} key={product.id}>
+          <label className={classes.containerImg}>
+            <img
+              className={classes.productImg}
+              src={product.image}
+              alt="product"
+            />
+            <div className={classes.containerFields}>
+              <label className={classes.productName}>
                 {product.name}
                 <label onClick={() => deleteProductFromCart(product)}>
-                  <FaTrash size="16" />
+                  <FaTrash className={classes.svg} size="16" />
                 </label>
               </label>
               <div>
                 <button
                   type="button"
-                  className="input-number-buttons"
+                  className={classes.inputNumberButtons}
                   onClick={() => countAmountProduct("Reduce", product)}
                 >
                   -
                 </button>
                 <InputNumber
-                  className="input-number"
+                  className={classes.inputNumber}
                   min={1}
                   max={30}
                   step={1}
@@ -80,7 +87,7 @@ const Cart = () => {
                 />
                 <button
                   type="button"
-                  className="input-number-buttons"
+                  className={classes.inputNumberButtons}
                   onClick={() => countAmountProduct("Add", product)}
                 >
                   +
@@ -88,7 +95,7 @@ const Cart = () => {
               </div>
             </div>
           </label>
-          <label className="text-price">
+          <label className={classes.textPrice}>
             R$ {product.price.toFixed(2).toString().replace(".", ",")}
           </label>
         </div>
@@ -98,8 +105,7 @@ const Cart = () => {
 
   return (
     <>
-      {" "}
-      <div className="card-cart">{getProductsList()}</div>{" "}
+      <div className={classes.cardCart}>{getProductsList()}</div>
     </>
   );
 };

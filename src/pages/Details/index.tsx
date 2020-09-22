@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 
 import axios from "axios";
 
-import "./styles.css";
+import Styles from "./styles";
 
 interface IProduct {
   id: number;
@@ -16,6 +16,8 @@ interface IProduct {
 }
 
 const Details = () => {
+  const classes = Styles();
+
   const productsCart: IProduct[] = useSelector((state) => state.data);
   const dispatch: any = useDispatch();
 
@@ -54,22 +56,26 @@ const Details = () => {
   }
 
   return (
-    <div className="details">
+    <div className={classes.details}>
       {product.map((product: IProduct) => (
         <>
-          <div className="name-product-mobile">
+          <div className={classes.nameProductMobile}>
             <label>{product.name}</label>
           </div>
-          <div className="container-details">
-            <div className="container-img-details">
-              <img className="img-height" src={product.image} alt="produto" />
+          <div className={classes.containerDetails}>
+            <div className={classes.containerImgDetails}>
+              <img
+                className={classes.imgHeight}
+                src={product.image}
+                alt="produto"
+              />
             </div>
-            <div className="container-description">
-              <div className="name-product">
+            <div className={classes.containerDescription}>
+              <div className={classes.nameProduct}>
                 <label>{product.name}</label>
               </div>
-              <div className="container-price">
-                <label className="price">
+              <div className={classes.containerPrice}>
+                <label className={classes.price}>
                   R$ {product.price.toFixed(2).toString().replace(".", ",")}
                 </label>
                 <button type="button" onClick={() => addProductToCart(product)}>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import "./styles.css";
+import Styles from './styles';
 
 interface IProduct {
   id: number;
@@ -15,16 +15,18 @@ interface IProduct {
 }
 
 const Product = (props: IProduct) => {
+  const classes = Styles();
+
   return (
-    <div className="product">
-      <div className="card">
+    <div className={classes.product}>
+      <div className={classes.card}>
         <Link to={`/details/${props.id}`}>
-          <img className="img-size" src={props.image} />
+          <img className={classes.imgSize} src={props.image} alt="product" />
         </Link>
-        <Link className="text-link" to={`/details/${props.id}`}>
-          <label className="product-text">{props.name}</label>
+        <Link className={classes.textLink} to={`/details/${props.id}`}>
+          <label className={classes.productText}>{props.name}</label>
         </Link>
-        <label className="product-text">
+        <label className={classes.productText}>
           R$ {props.price.toFixed(2).toString().replace(".", ",")}
         </label>
         <button onClick={props.onClick}>Comprar</button>

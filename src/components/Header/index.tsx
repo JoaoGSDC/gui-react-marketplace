@@ -4,17 +4,18 @@ import { FaShoppingCart } from "react-icons/fa";
 
 import logo from "../../assets/images/logo.png";
 
-import "./styles.css";
+import Styles from "./styles";
 
 const Header = () => {
+  const classes = Styles();
   return (
-    <nav>
+    <nav className={classes.nav}>
       <Link to="/">
-        <img src={logo} alt="logo" className="logo" />
+        <img src={logo} alt="logo" className={classes.logo} />
       </Link>
-      <Link className="cart" to="/cart">
-        <FaShoppingCart size="40" />
-        <label className="cart-text">Carrinho</label>
+      <Link className={classes.cart} to="/cart">
+        <FaShoppingCart className={classes.svg} size="40" />
+        <label className={classes.cartText}>Carrinho</label>
       </Link>
     </nav>
   );

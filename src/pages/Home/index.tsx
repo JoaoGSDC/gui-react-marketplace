@@ -1,10 +1,12 @@
 import React, { useEffect, useState, ChangeEvent } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+
 
 import Product from "../../components/Product";
 
-import "./styles.css";
+import Styles from "./styles";
 
 import { FaSearch } from "react-icons/fa";
 
@@ -21,8 +23,12 @@ interface IProduct {
 }
 
 const Home = () => {
+  const classes = Styles();
+
   const productsCart: IProduct[] = useSelector((state) => state.data);
   const dispatch: any = useDispatch();
+
+  const history = useHistory();
 
   const url: string = "http://localhost:3001/products";
 
@@ -56,26 +62,28 @@ const Home = () => {
 
     product.amount = 1;
     dispatch({ type: "ADD_PRODUCT", product });
+    
+    history.push("/cart");
   }
 
   return (
-    <div className="home">
-      <div className="imgs">
-        <img className="imgs-ninja" src={ninjaImg} alt="ninja" />
-        <img className="imgs-logo" src={logo} alt="logo" />
+    <div className={classes.home}>
+      <div className={classes.imgs}>
+        <img className={classes.imgsNinja} src={ninjaImg} alt="ninja" />
+        <img className={classes.imgsLogo} src={logo} alt="logo" />
       </div>
 
-      <div className="search-container">
+      <div className={classes.searchContainer}>
         <input
           type="text"
-          className="input-width"
+          className={classes.inputWidth}
           placeholder="Pesquisar..."
           onChange={handleInputChange}
         />
         <FaSearch size="40" />
       </div>
 
-      <div className="products-container">
+      <div className={classes.productsContainer}>
         {products.map((product: IProduct) => (
           <Product
             key={product.id}
